@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Requisition Form</title>
+	 <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--Animate css-->
+    <link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    
+     <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+
+     <script type="text/javascript" language="javascript">
+     	function calcTotal(){
+     		document.requisitionForm.Total.value=parseInt(document.requisitionForm.qty.value)* parseInt(document.requisitionForm.cost.value);
+     	}
+     	function addRows(){
+     		var table=document.requisitionForm.querySelector("table");
+     		var rowCount=table.rows.length;
+     		var row=table.insertRow(rowCount);
+
+     		var cell1=row.insertCell(0);
+     		var element1=document.requisitionForm.createElement("input");
+     		element1.type="text";
+     		element1.name="item[]";
+     		cell1.appendChild(element1);
+
+     		var cell2=row.insertCell(1);
+
+     		var cell3=row.insertCell(2);
+     		var cell4=row.insertCell(3);
+     		var cell5=row.insertCell(4);
+
+     	}
+     </script>
+     <style type="text/css">
+     	h3,h1{
+     		animation: bounce;
+     		animation-duration: 2s;
+     	}
+     	h1.tittle{
+     		
+     		text-align: center;
+     		margin-top: 30px;
+     	}
+     	form{
+     		margin-top: 50px;
+     		margin-right: 200px;
+     		margin-left: 200px;
+     		margin-bottom: 100px;
+     	}
+     </style>
+</head>
+<body>
+	<h1 class="tittle">Requisition Form</h1>
+	<form name="requisitionForm">
+		<div class="row">
+			<div class="col-md-4">
+				<div class=" form-group">
+					<label for ="date">Date</label>
+					<input type="date" class="form-control">
+				</div>
+			</div>
+	    </div>
+	    <H5>Requisiter Info.</H5>
+	    <div class="row">	
+			<div class="col-md-4">
+				<div class=" form-group">
+					<label for ="name">Name</label>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+
+			<div class="col-md-4">
+				<div class=" form-group">
+					<label for ="name">Department</label>
+					<select class="custom-select">
+						<option>Select One</option>
+						<option>Business Development</option>
+						<option>Customer Service/Call Center</option>
+						<option>Finance</option>
+						<option>I.T</option>
+						<option>Operations</option>
+						<option>Warehouse</option>
+					</select>
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class=" form-group">
+					<label for ="phone">Phone</label>
+					<input type="tel" class="form-control">
+				</div>
+			</div>	
+		</div>	
+		<h3>Recommended Vendor Info.</h3>	
+		<div class="row">
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for ="vName">Vendor Name</label>
+					<input type="text" class="form-control">
+				</div>
+			</div>
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for ="vName">Vendor Address</label>
+					<input type="text" class="form-control">
+				</div>
+			</div>	
+			<div class="col-md-4">
+				<div class="form-group">
+					<label for ="vName">Vendor Phone Number</label>
+					<input type="tel" class="form-control">
+				</div>
+			</div>				
+		</div>
+		<h3>Materials required</h3>
+		<table class="table table-bordered table-sm" id="materialsTable">
+			<thead>
+				<tr>
+				 <th scope="col-md-3">Item</th>
+				 <th scope="col-md-4">Description & Size</th>
+				 <th scope="col-md-1">Qty</th>
+				 <th scope="col-md-2">Cost</th>
+				 <th scope="col-md-2">Total</th>	
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>
+						<input type="text" name="Item">
+					</td>
+					<td>
+						<input type="text" name="desc">
+					</td>
+					<td>
+						<input type="number" name="qty">
+					</td>
+					<td>
+						<input type="number" name="cost">
+					</td>
+					<td>
+						<input type="number" name="Total" id="total" onFocus="calcTotal()" >
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<input type="button" name="addRow" value="Add More" onclick="addRows()">
+		<div class="row" style="align-items: center; margin: 30px">
+			<div class="col-md-4">
+				<input class="btn btn-primary" value="Cancel" type="reset">
+			</div>
+			<div class="col-md-4">
+				<input type="submit" class="btn btn-success" value="Submit">
+			</div>
+			
+			
+		</div>
+
+	</form>
+
+
+</body>
+</html>
