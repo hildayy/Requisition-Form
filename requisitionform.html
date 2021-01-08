@@ -31,6 +31,10 @@
      		margin-bottom: 100px;
      		animation-delay: 0.5s;
      	}
+		 input:invalid {
+			border: 1px solid black;
+		}
+
 
     </style>
     <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" 
@@ -38,6 +42,7 @@
 
  
    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+   
 </head>
 <body>
 	<div class="row">
@@ -86,8 +91,8 @@
 			</div>
 			<div class="col-md-4">
 				<div class=" form-group">
-					<label for ="phone">Email</label>
-					<input type="text"class="form-control" name="Email" required>
+					<label for ="email">Email</label>
+					<input type="email"class="form-control" name="Email" required>
 				</div>
 			</div>	
 		</div>	
@@ -127,16 +132,16 @@
 			<tbody>
 				<tr>
 					<td>
-						<input type="text" name="Item">
+						<input type="text" name="Item" required>
 					</td>
 					<td>
-						<input type="text" name="Description">
+						<input type="text" name="Description" required>
 					</td>
 					<td>
-						<input type="number" name="Quantity">
+						<input type="number" name="Quantity" required>
 					</td>
 					<td>
-						<input type="number" name="Cost">
+						<input type="number" name="Cost" required>
 					</td>
 					<td>
 						<input type="number" name="Total" id="total" onFocus="calcTotal()" >
